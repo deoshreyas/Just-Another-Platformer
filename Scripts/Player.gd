@@ -4,8 +4,14 @@ extends CharacterBody2D
 @export var JUMP_SPEED = 250
 @export var FALL_SPEED = 9.8
 @export var MAX_FALL_SPEED = 250
+@export var MAX_DOUBLE_JUMPS = 2
+@export var DOUBLE_JUMP_SPEED = 5
 
 @onready var sprites = $AnimatedSprite2D
+@onready var double_jump_timer = $DoubleJumpTimer
+
+var can_double_jump = false 
+var num_double_jumps = 0 
 
 func _physics_process(delta):
 	movement()
@@ -24,10 +30,21 @@ func movement():
 		sprites.play("walk")
 	else:
 		sprites.play("idle")
-	if Input.is_action_pressed("up"):
+	if Input.is_action_just_pressed("up"):
 		if is_on_floor():
 			velocity.y = -JUMP_SPEED
+		elif can_double_jump:
+			num_double_jumps += 1
+			velocity.y = -JUMP_SPEED-DOUBLE_JUMP_SPEED
 	if not is_on_floor():
 		sprites.play("walk")
 		sprites.frame = 0
+		can_double_jump = true 
+	else:
+		num_double_jumps = 0
+		can_double_jump = false
+	
+	if num_double_jumps==MAX_DOUBLE_JUMPS:
+		can_double_jump = false
+		
 	move_and_slide()
