@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdtr1m3cu8st3"]
+
+[ext_resource type="Script" path="res://Scripts/FallingSpikes.gd" id="1_vrs70"]
+[ext_resource type="Texture2D" uid="uid://d2rdu7nai474n" path="res://Assets/Sprites/spikes.png" id="2_6wsib"]
+[ext_resource type="PackedScene" uid="uid://j2e06uxookwg" path="res://Scenes/hitbox.tscn" id="3_76kfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yapi"]
+size = Vector2(19, 9)
+
+[node name="FallingSpikes" type="CharacterBody2D"]
+script = ExtResource("1_vrs70")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("2_6wsib")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_76kfg")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_3yapi")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+
+[editable path="Hitbox"]

@@ -14,10 +14,6 @@ class_name Player
 var can_double_jump = false 
 var num_double_jumps = 0 
 
-func _ready():
-	Global.connect("reduce_gravity", _reduce_self_gravity)
-	Global.connect("normal_gravity", _normalize_self_gravity)
-
 func _physics_process(_delta):
 	movement()
 	
@@ -57,9 +53,3 @@ func movement():
 	
 func pan_cam_to_self():
 	camera.position = position
-
-func _reduce_self_gravity():
-	FALL_SPEED = 1.0 
-
-func _normalize_self_gravity():
-	FALL_SPEED = 9.8

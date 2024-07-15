@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_fid8e"]
 [ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="2_36o3i"]
-[ext_resource type="PackedScene" uid="uid://smw7nd3fxpry" path="res://Scenes/friction_box.tscn" id="4_n0k4h"]
+[ext_resource type="PackedScene" uid="uid://cdtr1m3cu8st3" path="res://Scenes/FallingSpikes.tscn" id="3_1k2cv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_25vog"]
-size = Vector2(93, 74)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whavt"]
+size = Vector2(20, 83)
 
 [node name="Level1" instance=ExtResource("1_fid8e")]
 
@@ -18,18 +18,16 @@ position = Vector2(23, -64)
 [node name="MovingPlatform" parent="." index="3" instance=ExtResource("2_36o3i")]
 position = Vector2(737, 170)
 
-[node name="PathFollow2D" parent="MovingPlatform" index="0"]
-position = Vector2(0, 0)
-progress = 0.0
-
 [node name="AnimatableBody2D" parent="MovingPlatform" index="1"]
 position = Vector2(64.4803, 0.520004)
 
-[node name="FrictionBox" parent="." index="4" instance=ExtResource("4_n0k4h")]
+[node name="FallingSpikes" parent="." index="4" instance=ExtResource("3_1k2cv")]
+position = Vector2(568, 76)
 
-[node name="CollisionShape2D" parent="FrictionBox" index="0"]
-position = Vector2(47.5, 20)
-shape = SubResource("RectangleShape2D_25vog")
+[node name="CollisionShape2D" parent="FallingSpikes/DetectionArea" index="0"]
+position = Vector2(0, 44.5)
+shape = SubResource("RectangleShape2D_whavt")
 
 [editable path="MovingPlatform"]
-[editable path="FrictionBox"]
+[editable path="FallingSpikes"]
+[editable path="FallingSpikes/Hitbox"]
