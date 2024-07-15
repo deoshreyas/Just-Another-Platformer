@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_noby6"]
 [ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="2_cptio"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u84oy"]
-size = Vector2(14, 22)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdswx"]
 atlas = ExtResource("2_cptio")
 region = Rect2(144, 0, 24, 24)
@@ -40,15 +37,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u84oy"]
+size = Vector2(14, 22)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_noby6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_u84oy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lveow")
 animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_u84oy")

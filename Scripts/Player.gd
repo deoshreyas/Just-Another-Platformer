@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var SPEED = 100
 @export var JUMP_SPEED = 250
@@ -9,11 +10,12 @@ extends CharacterBody2D
 
 @onready var sprites = $AnimatedSprite2D
 @onready var double_jump_timer = $DoubleJumpTimer
+@onready var camera : Camera2D = get_tree().get_first_node_in_group("Camera")
 
 var can_double_jump = false 
 var num_double_jumps = 0 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	movement()
 	
 func movement():
@@ -46,5 +48,9 @@ func movement():
 	
 	if num_double_jumps==MAX_DOUBLE_JUMPS:
 		can_double_jump = false
-		
+	
+	pan_cam_to_self()
 	move_and_slide()
+	
+func pan_cam_to_self():
+	camera.position = position

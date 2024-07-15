@@ -9,14 +9,17 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Animation" id="Animation_8mve0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ybkf"]
+size = Vector2(54, 18)
+
+[sub_resource type="Animation" id="Animation_eouji"]
 resource_name = "Loop"
 length = 5.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,12 +29,12 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_wclg0"]
+[sub_resource type="Animation" id="Animation_uv6k8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,14 +44,14 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_5edii"]
+[sub_resource type="Animation" id="Animation_laydc"]
 resource_name = "Bounce"
 length = 5.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -58,15 +61,12 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_66i1t"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbk51"]
 _data = {
-"Bounce": SubResource("Animation_5edii"),
-"Loop": SubResource("Animation_8mve0"),
-"RESET": SubResource("Animation_wclg0")
+"Bounce": SubResource("Animation_laydc"),
+"Loop": SubResource("Animation_eouji"),
+"RESET": SubResource("Animation_uv6k8")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p3j7"]
-size = Vector2(54, 18)
 
 [node name="MovingPlatform" type="Path2D"]
 curve = SubResource("Curve2D_7ch2f")
@@ -75,27 +75,29 @@ AnimationType = 1
 speed = 1.0
 metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../PathFollow2D/Node2D")
-autoplay = "Loop"
-libraries = {
-"": SubResource("AnimationLibrary_66i1t")
-}
-
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(1.39999, 0.0112903)
-progress = 1.40354
+position = Vector2(64.4803, 0.520002)
+progress = 64.4821
 rotates = false
 
-[node name="Node2D" type="Node2D" parent="PathFollow2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Node2D"]
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
 texture = ExtResource("1_r2rqv")
 region_enabled = true
 region_rect = Rect2(234.118, 54.1747, 54.1896, 17.6788)
 
-[node name="Area2D" type="Area2D" parent="PathFollow2D/Node2D"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(64.4803, 0.520002)
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Node2D/Area2D"]
-shape = SubResource("RectangleShape2D_3p3j7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-0.399993, -0.0112906)
+shape = SubResource("RectangleShape2D_3ybkf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_xbk51")
+}

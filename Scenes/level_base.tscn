@@ -1,15 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ogo80smhttn0"]
+[gd_scene load_steps=3 format=3 uid="uid://ogo80smhttn0"]
 
 [ext_resource type="PackedScene" uid="uid://dl427p52uco2n" path="res://Scenes/tile_map.tscn" id="1_072ah"]
-[ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_iogh4"]
 [ext_resource type="PackedScene" uid="uid://btnadq4m1wn0" path="res://Scenes/player.tscn" id="2_sfpmw"]
 
 [node name="LevelBase" type="Node2D"]
-script = ExtResource("1_iogh4")
 
 [node name="TileMap" parent="." instance=ExtResource("1_072ah")]
 
 [node name="Player" parent="." instance=ExtResource("2_sfpmw")]
 position = Vector2(194, 11)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
