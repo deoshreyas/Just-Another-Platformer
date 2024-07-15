@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
-@export var SPEED = 150
+@export var SPEED = 500
 
-@onready var main_self = $"."
+@onready var raycast = $RayCast2D
 
-func _on_detection_area_body_entered(body):
-	if body is Player:
-		main_self.velocity.y += SPEED 
+var falling = false 
+
+func _physics_process(delta):
+	if falling:
+		velocity.y += SPEED * delta
+		move_and_slide()
+	if raycast.is_colliding():
+		if raycast.get_collider() is Player:
+			falling = true

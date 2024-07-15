@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdtr1m3cu8st3"]
+[gd_scene load_steps=6 format=3 uid="uid://cdtr1m3cu8st3"]
 
 [ext_resource type="Script" path="res://Scripts/FallingSpikes.gd" id="1_vrs70"]
 [ext_resource type="Texture2D" uid="uid://d2rdu7nai474n" path="res://Assets/Sprites/spikes.png" id="2_6wsib"]
@@ -7,7 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yapi"]
 size = Vector2(19, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l43aj"]
+size = Vector2(20, 9)
+
 [node name="FallingSpikes" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_vrs70")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,12 +24,11 @@ texture = ExtResource("2_6wsib")
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_3yapi")
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 2
-monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_l43aj")
 
 [editable path="Hitbox"]
