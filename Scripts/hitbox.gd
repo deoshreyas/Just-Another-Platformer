@@ -2,5 +2,8 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body is Player:
-		get_tree().reload_current_scene()
-		Global.lives -= 1
+		if Global.lives > 0:
+			get_tree().reload_current_scene()
+			Global.lives -= 1
+		else:
+			body.queue_free()
