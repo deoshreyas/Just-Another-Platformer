@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7e7knpofcwnh"]
+[gd_scene load_steps=10 format=3 uid="uid://b7e7knpofcwnh"]
 
 [ext_resource type="Script" path="res://Scripts/spike_walking_enemy.gd" id="1_k40fk"]
 [ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="1_uf0x0"]
+[ext_resource type="PackedScene" uid="uid://j2e06uxookwg" path="res://Scenes/hitbox.tscn" id="3_8kdfd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2r1pi"]
 atlas = ExtResource("1_uf0x0")
@@ -37,7 +38,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qaag2"]
+size = Vector2(7, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pj13x"]
+size = Vector2(15, 9)
+
 [node name="SpikeWalkingEnemy" type="CharacterBody2D"]
+z_index = -1
 script = ExtResource("1_k40fk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -46,6 +54,8 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="Left" type="RayCast2D" parent="."]
 rotation = 1.5708
@@ -62,3 +72,20 @@ target_position = Vector2(0, 20)
 [node name="Down2" type="RayCast2D" parent="."]
 position = Vector2(14, 0)
 target_position = Vector2(0, 20)
+
+[node name="Hitbox2" parent="." instance=ExtResource("3_8kdfd")]
+
+[node name="CollisionShape2D" parent="Hitbox2" index="0"]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_qaag2")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_8kdfd")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_pj13x")
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[editable path="Hitbox2"]
+[editable path="Hitbox"]
