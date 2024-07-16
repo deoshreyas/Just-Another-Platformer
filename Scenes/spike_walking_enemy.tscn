@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7e7knpofcwnh"]
+
+[ext_resource type="Script" path="res://Scripts/spike_walking_enemy.gd" id="1_k40fk"]
+[ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="1_uf0x0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r1pi"]
+atlas = ExtResource("1_uf0x0")
+region = Rect2(192, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whjk5"]
+atlas = ExtResource("1_uf0x0")
+region = Rect2(144, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uat0j"]
+atlas = ExtResource("1_uf0x0")
+region = Rect2(168, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e167w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r1pi")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whjk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uat0j")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="SpikeWalkingEnemy" type="CharacterBody2D"]
+script = ExtResource("1_k40fk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e167w")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="Left" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, 20)
+
+[node name="Right" type="RayCast2D" parent="."]
+rotation = -1.5708
+target_position = Vector2(0, 20)
+
+[node name="Down1" type="RayCast2D" parent="."]
+position = Vector2(-14, 0)
+target_position = Vector2(0, 20)
+
+[node name="Down2" type="RayCast2D" parent="."]
+position = Vector2(14, 0)
+target_position = Vector2(0, 20)

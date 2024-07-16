@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://8jv31iwvqwqv"]
+[gd_scene load_steps=7 format=3 uid="uid://8jv31iwvqwqv"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_fid8e"]
 [ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="2_36o3i"]
 [ext_resource type="PackedScene" uid="uid://cdtr1m3cu8st3" path="res://Scenes/FallingSpikes.tscn" id="3_1k2cv"]
 [ext_resource type="PackedScene" uid="uid://b3mvop7mugb2w" path="res://Scenes/big_walking_enemy.tscn" id="4_2e463"]
 [ext_resource type="PackedScene" uid="uid://bdxxlrsh5b4tu" path="res://Scenes/small_walking_enemy.tscn" id="5_rp06w"]
+[ext_resource type="PackedScene" uid="uid://c3tlrf0mwrlp5" path="res://Scenes/flying_enemy.tscn" id="6_ncjii"]
 
 [node name="Level1" instance=ExtResource("1_fid8e")]
 
@@ -35,6 +36,10 @@ position = Vector2(217, 97)
 
 [node name="SmallWalkingEnemy" parent="." index="6" instance=ExtResource("5_rp06w")]
 position = Vector2(110, 7)
+
+[node name="FlyingEnemy" parent="." index="7" instance=ExtResource("6_ncjii")]
+position = Vector2(355, 25)
+AnimationType = 1
 
 [editable path="MovingPlatform"]
 [editable path="FallingSpikes"]

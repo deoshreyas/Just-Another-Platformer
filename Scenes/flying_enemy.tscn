@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://c3tlrf0mwrlp5"]
+
+[ext_resource type="Script" path="res://Scripts/FlyingEnemy.gd" id="1_xy3po"]
+[ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="2_kw4jg"]
+[ext_resource type="PackedScene" uid="uid://j2e06uxookwg" path="res://Scenes/hitbox.tscn" id="3_l884v"]
+
+[sub_resource type="Curve2D" id="Curve2D_3clan"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 129)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xjmo"]
+atlas = ExtResource("2_kw4jg")
+region = Rect2(144, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jion3"]
+atlas = ExtResource("2_kw4jg")
+region = Rect2(168, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11arm"]
+atlas = ExtResource("2_kw4jg")
+region = Rect2(192, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0l8j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xjmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jion3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11arm")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcndb"]
+size = Vector2(17.9919, 16.9923)
+
+[sub_resource type="Animation" id="Animation_npobd"]
+resource_name = "Loop"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_w7ext"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_prsll"]
+resource_name = "Bounce"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2g752"]
+_data = {
+"Bounce": SubResource("Animation_prsll"),
+"Loop": SubResource("Animation_npobd"),
+"RESET": SubResource("Animation_w7ext")
+}
+
+[node name="FlyingEnemy" type="Path2D"]
+curve = SubResource("Curve2D_3clan")
+script = ExtResource("1_xy3po")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D"]
+sprite_frames = SubResource("SpriteFrames_f0l8j")
+animation = &"flying"
+autoplay = "flying"
+frame_progress = 0.712528
+
+[node name="Hitbox" parent="PathFollow2D" instance=ExtResource("3_l884v")]
+
+[node name="CollisionShape2D" parent="PathFollow2D/Hitbox" index="0"]
+position = Vector2(-0.0300579, 0.499763)
+shape = SubResource("RectangleShape2D_qcndb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2g752")
+}
+
+[editable path="PathFollow2D/Hitbox"]
