@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdxxlrsh5b4tu"]
+
+[ext_resource type="PackedScene" uid="uid://b3mvop7mugb2w" path="res://Scenes/big_walking_enemy.tscn" id="1_2n55f"]
+[ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="2_ex7e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0p1c"]
+atlas = ExtResource("2_ex7e3")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gas1p"]
+atlas = ExtResource("2_ex7e3")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exhit"]
+atlas = ExtResource("2_ex7e3")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dvvop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0p1c")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gas1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exhit")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjjut"]
+size = Vector2(15, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxjt2"]
+size = Vector2(11, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61onc"]
+size = Vector2(15, 8)
+
+[node name="SmallWalkingEnemy" instance=ExtResource("1_2n55f")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_dvvop")
+animation = &"dead"
+
+[node name="WorldCollision" parent="." index="3"]
+position = Vector2(0.5, 7)
+shape = SubResource("RectangleShape2D_jjjut")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_jxjt2")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_61onc")
+
+[editable path="Hitbox"]
