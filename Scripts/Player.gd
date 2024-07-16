@@ -7,6 +7,7 @@ class_name Player
 @export var MAX_FALL_SPEED = 250
 @export var MAX_DOUBLE_JUMPS = 2
 @export var DOUBLE_JUMP_SPEED = 5
+@export var ORIGINAL_POS : Vector2
 
 @onready var sprites = $AnimatedSprite2D
 @onready var camera : Camera2D = get_tree().get_first_node_in_group("Camera")
@@ -53,3 +54,6 @@ func movement():
 	
 func pan_cam_to_self():
 	camera.position = position
+
+func respawn():
+	position = ORIGINAL_POS
