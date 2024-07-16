@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3mvop7mugb2w"]
+[gd_scene load_steps=11 format=3 uid="uid://b3mvop7mugb2w"]
 
 [ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="1_t4utl"]
 [ext_resource type="Script" path="res://Scripts/big_walking_enemy.gd" id="1_w2v3n"]
+[ext_resource type="PackedScene" uid="uid://j2e06uxookwg" path="res://Scenes/hitbox.tscn" id="3_wcgaw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pxf7l"]
 atlas = ExtResource("1_t4utl")
@@ -38,14 +39,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77qyk"]
-size = Vector2(24, 21)
+size = Vector2(24, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8aa35"]
-size = Vector2(24, 23)
+size = Vector2(20, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jonen"]
+size = Vector2(24, 16)
 
 [node name="BigWalkingEnemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
 script = ExtResource("1_w2v3n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -62,13 +65,24 @@ rotation = -1.5708
 target_position = Vector2(0, 20)
 
 [node name="WorldCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_77qyk")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 0.5)
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_8aa35")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_wcgaw")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_jonen")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+
+[editable path="Hitbox"]

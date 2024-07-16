@@ -11,7 +11,7 @@ size = Vector2(19, 9)
 size = Vector2(20, 9)
 
 [node name="FallingSpikes" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_vrs70")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,5 +30,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_l43aj")
+
+[node name="WorldRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 11)
 
 [editable path="Hitbox"]
