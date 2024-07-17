@@ -7,6 +7,8 @@ var life_pos = Vector2(15, 15)
 
 func _process(_delta):
 	var num_drawn = 0
+	for heart in lives_container.get_children():
+		heart.queue_free()
 	for i in range(Global.MAX_LIVES):
 		var filled_heart = num_drawn < Global.lives
 		var life_instance = life.instantiate()

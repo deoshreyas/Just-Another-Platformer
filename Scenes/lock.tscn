@@ -48,6 +48,10 @@ animations = [{
 size = Vector2(18, 18)
 
 [node name="Lock" type="Area2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 2
+monitorable = false
 script = ExtResource("1_txbpw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
