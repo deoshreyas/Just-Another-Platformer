@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8jv31iwvqwqv"]
+[gd_scene load_steps=10 format=3 uid="uid://8jv31iwvqwqv"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_fid8e"]
 [ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="2_36o3i"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://01lpooxkui4d" path="res://Scenes/checkpoint.tscn" id="5_x4sly"]
 [ext_resource type="PackedScene" uid="uid://cxjrfky41chdc" path="res://Scenes/lever.tscn" id="6_555qc"]
 [ext_resource type="PackedScene" uid="uid://b53coulog0il2" path="res://Scenes/lever_block.tscn" id="7_wlw10"]
+[ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="8_a00q4"]
+[ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="9_vrq27"]
 
 [node name="Level1" instance=ExtResource("1_fid8e")]
 
@@ -51,6 +53,12 @@ position = Vector2(426, 139)
 
 [node name="LeverBlock3" parent="." index="12" instance=ExtResource("7_wlw10")]
 position = Vector2(426, 123)
+
+[node name="KeyItem" parent="." index="13" instance=ExtResource("8_a00q4")]
+position = Vector2(188, -83)
+
+[node name="Lock" parent="." index="14" instance=ExtResource("9_vrq27")]
+position = Vector2(379, -64)
 
 [editable path="MovingPlatform"]
 [editable path="FallingSpikes"]

@@ -14,6 +14,14 @@ class_name Player
 var can_double_jump = false 
 var num_double_jumps = 0 
 
+var has_key = false:
+	get:
+		return has_key
+	set(value):
+		has_key = value 
+		if has_key:
+			$Key.visible = true
+
 func _ready():
 	position = Global.checkpoint
 
