@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://8jv31iwvqwqv"]
+[gd_scene load_steps=14 format=3 uid="uid://8jv31iwvqwqv"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_fid8e"]
 [ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="2_36o3i"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="9_vrq27"]
 [ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="10_i3jv1"]
 [ext_resource type="PackedScene" uid="uid://vuva6g8v10hf" path="res://Scenes/level_2.tscn" id="11_l3ynw"]
+[ext_resource type="PackedScene" uid="uid://dpo3xtkvwetw7" path="res://Scenes/coin.tscn" id="12_xhkj2"]
+[ext_resource type="PackedScene" uid="uid://bn7cdi8uc02js" path="res://Scenes/diamond.tscn" id="13_vgk66"]
 
 [node name="Level1" instance=ExtResource("1_fid8e")]
 
@@ -38,11 +40,11 @@ target_position = Vector2(0, 85)
 [node name="SpikeWalkingEnemy" parent="." index="5" instance=ExtResource("4_konn1")]
 position = Vector2(112, 7)
 
-[node name="Checkpoint" parent="." index="7" instance=ExtResource("5_x4sly")]
-position = Vector2(315, 81)
-
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(475, 508.5)
+
+[node name="Checkpoint" parent="." index="7" instance=ExtResource("5_x4sly")]
+position = Vector2(315, 81)
 
 [node name="Lever" parent="." index="9" instance=ExtResource("6_555qc")]
 position = Vector2(422, 10)
@@ -68,6 +70,12 @@ Next_Level = ExtResource("11_l3ynw")
 
 [node name="Checkpoint2" parent="." index="16" instance=ExtResource("5_x4sly")]
 position = Vector2(611, 9)
+
+[node name="Coin" parent="." index="17" instance=ExtResource("12_xhkj2")]
+position = Vector2(173, 9)
+
+[node name="Diamond" parent="." index="18" instance=ExtResource("13_vgk66")]
+position = Vector2(296, -63)
 
 [editable path="MovingPlatform"]
 [editable path="FallingSpikes"]

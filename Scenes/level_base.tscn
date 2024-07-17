@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ogo80smhttn0"]
+[gd_scene load_steps=7 format=3 uid="uid://ogo80smhttn0"]
 
 [ext_resource type="PackedScene" uid="uid://dl427p52uco2n" path="res://Scenes/tile_map.tscn" id="1_072ah"]
 [ext_resource type="Script" path="res://Scripts/level_base.gd" id="1_hc3mk"]
 [ext_resource type="PackedScene" uid="uid://btnadq4m1wn0" path="res://Scenes/player.tscn" id="2_sfpmw"]
 [ext_resource type="PackedScene" uid="uid://j2e06uxookwg" path="res://Scenes/hitbox.tscn" id="4_41rt4"]
+[ext_resource type="PackedScene" uid="uid://b1jjh72mf3poc" path="res://Scenes/hud.tscn" id="5_y52sf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhv7e"]
 size = Vector2(2479.5, 17)
@@ -23,5 +24,7 @@ position = Vector2(194, 11)
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(510.25, 508.5)
 shape = SubResource("RectangleShape2D_xhv7e")
+
+[node name="HUD" parent="." instance=ExtResource("5_y52sf")]
 
 [editable path="Hitbox"]

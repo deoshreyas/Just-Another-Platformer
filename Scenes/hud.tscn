@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1jjh72mf3poc"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_1qu5t"]
+[ext_resource type="Texture2D" uid="uid://dhdywnvpt08gh" path="res://Assets/Sprites/tilemap_packed.png" id="2_hq6h3"]
+[ext_resource type="FontFile" uid="uid://b72tfbiytic50" path="res://Assets/Fonts/PixeloidSans-Bold.ttf" id="3_bc7i4"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_1qu5t")
+
+[node name="CoinCounter" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 29.0
+grow_horizontal = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CoinCounter"]
+position = Vector2(-9, 12)
+texture = ExtResource("2_hq6h3")
+region_enabled = true
+region_rect = Rect2(200.727, 128.284, 12.4484, 12.9272)
+
+[node name="CoinCount" type="Label" parent="CoinCounter"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bc7i4")
+theme_override_font_sizes/font_size = 9
+text = "99"
+
+[node name="DiamondCounter" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_top = 15.0
+offset_bottom = 44.0
+grow_horizontal = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="DiamondCounter"]
+position = Vector2(-9, 12)
+texture = ExtResource("2_hq6h3")
+region_enabled = true
+region_rect = Rect2(127.663, 55.4942, 14.8434, 14.8434)
+
+[node name="DiamondCount" type="Label" parent="DiamondCounter"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bc7i4")
+theme_override_font_sizes/font_size = 9
+text = "99"

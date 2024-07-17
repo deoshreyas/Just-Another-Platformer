@@ -10,7 +10,7 @@ func _on_body_entered(body):
 				had_key = true
 			body.call_deferred("queue_free")
 			var player_instance = player.instantiate()
-			get_tree().get_first_node_in_group("Level").add_child(player_instance)
+			get_tree().get_first_node_in_group("Level").call_deferred("add_child", player_instance)
 			Global.lives -= 1
 			if had_key:
 				player_instance.has_key = true

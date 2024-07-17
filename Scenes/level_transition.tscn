@@ -80,6 +80,7 @@ _data = {
 
 [node name="LevelTransition" type="CanvasLayer"]
 process_mode = 3
+layer = 10
 script = ExtResource("1_h32qv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
