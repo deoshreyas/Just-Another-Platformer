@@ -1,13 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://vuva6g8v10hf"]
+[gd_scene load_steps=10 format=3 uid="uid://vuva6g8v10hf"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_n7qan"]
+[ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="2_1ndup"]
+[ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="3_r8y1q"]
+[ext_resource type="PackedScene" uid="uid://cbashq4m6cob1" path="res://Scenes/level_3.tscn" id="4_62kg6"]
+[ext_resource type="PackedScene" uid="uid://01lpooxkui4d" path="res://Scenes/checkpoint.tscn" id="4_sfoe1"]
+[ext_resource type="PackedScene" uid="uid://dpo3xtkvwetw7" path="res://Scenes/coin.tscn" id="5_28scv"]
+[ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="6_pq7wd"]
+[ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="7_auql8"]
+
+[sub_resource type="Curve2D" id="Curve2D_ky0iu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 23, 1, 0, 0, 0, 0, 124, 1)
+}
+point_count = 2
 
 [node name="Level2" instance=ExtResource("1_n7qan")]
 
 [node name="TileMap" parent="." index="0"]
-layer_0/tile_data = PackedInt32Array(131070, 65536, 0, 131071, 131072, 0, 65536, 131072, 0, 65537, 196608, 0, 196610, 65536, 0, 196611, 196608, 0, 262149, 65536, 0, 262150, 196608, 0, 393222, 65536, 0, 393223, 131072, 0, 393224, 131072, 0, 393225, 131072, 0, 393226, 131072, 3, 327691, 131072, 2, 262155, 131072, 2, 262156, 131072, 2, 196620, 131072, 2, 131084, 65536, 1, 131085, 131072, 1, 131086, 196608, 1, 196622, 196608, 2, 196621, 131072, 2, 262157, 131072, 2, 262154, 65536, 1, 196619, 65536, 1, 327690, 65536, 2, 327692, 131072, 2, 327693, 131072, 2, 262158, 196608, 2, 393228, 131072, 3, 393227, 131072, 3, 327694, 196608, 2, 393229, 131072, 3, 393230, 196608, 3, 16, 0, 0, 19, 0, 0, 22, 0, 0, 25, 0, 0)
+layer_0/tile_data = PackedInt32Array(131070, 65536, 0, 131071, 131072, 0, 65536, 131072, 0, 65537, 196608, 0, 65547, 65536, 0, 65548, 131072, 0, 65549, 131072, 0, 65550, 196608, 0, -65520, 0, 0, -131054, 0, 0, -196588, 65536, 0, -262122, 65536, 1, -262121, 196608, 1, -196587, 131072, 0, -196586, 131072, 3, -196585, 196608, 3, -262119, 65536, 0, -262118, 131072, 0, -262117, 131072, 0, -262116, 131072, 0, -262115, 196608, 0)
 
-[node name="Player" parent="." index="1"]
-position = Vector2(-3, -27)
+[node name="MovingPlatform" parent="." index="5" instance=ExtResource("2_1ndup")]
+position = Vector2(44, 26)
+curve = SubResource("Curve2D_ky0iu")
+
+[node name="PathFollow2D" parent="MovingPlatform" index="0"]
+position = Vector2(23, 1)
+progress = 0.0
+
+[node name="AnimatableBody2D" parent="MovingPlatform" index="1"]
+position = Vector2(23, 1)
+
+[node name="Door" parent="." index="6" instance=ExtResource("3_r8y1q")]
+position = Vector2(517, -85)
+Next_Level = ExtResource("4_62kg6")
+
+[node name="Checkpoint" parent="." index="7" instance=ExtResource("4_sfoe1")]
+position = Vector2(240, 10)
+
+[node name="Coin" parent="." index="8" instance=ExtResource("5_28scv")]
+position = Vector2(378, -64)
+
+[node name="KeyItem" parent="." index="9" instance=ExtResource("6_pq7wd")]
+position = Vector2(0, -91)
+
+[node name="Lock" parent="." index="10" instance=ExtResource("7_auql8")]
+position = Vector2(297, -26)
 
 [editable path="Hitbox"]
+[editable path="MovingPlatform"]

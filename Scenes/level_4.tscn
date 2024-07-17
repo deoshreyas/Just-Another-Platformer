@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://usfueapf28"]
+
+[ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_i4g4x"]
+[ext_resource type="PackedScene" uid="uid://cdtr1m3cu8st3" path="res://Scenes/FallingSpikes.tscn" id="2_km4hs"]
+[ext_resource type="PackedScene" uid="uid://dpo3xtkvwetw7" path="res://Scenes/coin.tscn" id="3_lpb82"]
+[ext_resource type="PackedScene" uid="uid://b3mvop7mugb2w" path="res://Scenes/big_walking_enemy.tscn" id="4_rsupp"]
+[ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="5_o7yxy"]
+[ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="6_qwgdt"]
+[ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="7_x2now"]
+[ext_resource type="PackedScene" uid="uid://bn7cdi8uc02js" path="res://Scenes/diamond.tscn" id="8_dmwl8"]
+[ext_resource type="PackedScene" uid="uid://buokn2rotd5tc" path="res://Scenes/level_5.tscn" id="8_yh2a6"]
+
+[node name="Level4" instance=ExtResource("1_i4g4x")]
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(655358, 65536, 0, 655359, 131072, 0, 589824, 131072, 0, 589825, 196608, 0, 1, 0, 1, 65537, 0, 2, 131073, 0, 2, 196609, 0, 2, 262145, 0, 2, 327681, 0, 2, 393217, 0, 3, 65534, 0, 1, 131070, 0, 2, 196606, 0, 2, 262142, 0, 2, 327678, 0, 2, 393214, 0, 2, 458750, 0, 3, 589828, 65536, 0, 589829, 196608, 0, 524295, 65536, 0, 524296, 196608, 0, 458762, 0, 0, 393228, 65536, 3, 393229, 131072, 0, 393230, 131072, 0, 393231, 131072, 0, 393232, 131072, 0, 393233, 131072, 0, 393234, 131072, 0, 327692, 0, 1, 393235, 131072, 0, 393236, 131072, 0, 393237, 131072, 0, 393238, 131072, 0, 393239, 196608, 3, 327703, 0, 1, 327705, 65536, 0, 327706, 196608, 0, 327708, 65536, 0, 327709, 196608, 0, 262151, 65536, 0, 262152, 196608, 0)
+
+[node name="FallingSpikes" parent="." index="5" instance=ExtResource("2_km4hs")]
+position = Vector2(144, 94)
+
+[node name="Coin" parent="." index="6" instance=ExtResource("3_lpb82")]
+position = Vector2(90, 151)
+
+[node name="BigWalkingEnemy" parent="." index="7" instance=ExtResource("4_rsupp")]
+position = Vector2(255, 98)
+
+[node name="Lock" parent="." index="8" instance=ExtResource("5_o7yxy")]
+position = Vector2(469, 83)
+
+[node name="KeyItem" parent="." index="9" instance=ExtResource("6_qwgdt")]
+position = Vector2(144, 61)
+
+[node name="Door" parent="." index="10" instance=ExtResource("7_x2now")]
+position = Vector2(522, 76)
+Next_Level = ExtResource("8_yh2a6")
+
+[node name="Diamond" parent="." index="11" instance=ExtResource("8_dmwl8")]
+position = Vector2(144, 134)
+
+[editable path="Hitbox"]

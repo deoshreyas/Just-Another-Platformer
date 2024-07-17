@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://b53coulog0il2"]
 
-[ext_resource type="Texture2D" uid="uid://cjams3sjpfooh" path="res://Assets/Tilemaps/tilemap_packed.png" id="1_fjw31"]
 [ext_resource type="Script" path="res://Scripts/LeverBlock.gd" id="2_57lsw"]
+[ext_resource type="Texture2D" uid="uid://dhdywnvpt08gh" path="res://Assets/Sprites/tilemap_packed.png" id="2_pok4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mbks"]
-size = Vector2(17.5, 18)
+size = Vector2(16, 53)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("2_57lsw")
 
 [node name="LeverBlock" type="Sprite2D" parent="."]
-texture = ExtResource("1_fjw31")
+texture = ExtResource("2_pok4b")
 region_enabled = true
-region_rect = Rect2(179.423, 54.3331, 18.309, 17.6462)
+region_rect = Rect2(252.96, 19.0665, 16.0393, 53.8633)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 0)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0mbks")

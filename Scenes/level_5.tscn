@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://buokn2rotd5tc"]
+
+[ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_fi7f8"]
+[ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="2_xnfry"]
+[ext_resource type="PackedScene" uid="uid://dpo3xtkvwetw7" path="res://Scenes/coin.tscn" id="3_2o5r4"]
+[ext_resource type="PackedScene" uid="uid://c3tlrf0mwrlp5" path="res://Scenes/flying_enemy.tscn" id="4_4c1ik"]
+[ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="5_w4lde"]
+[ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="6_hw0rc"]
+[ext_resource type="PackedScene" uid="uid://b7e7knpofcwnh" path="res://Scenes/spike_walking_enemy.tscn" id="7_4vuf6"]
+
+[sub_resource type="Curve2D" id="Curve2D_msc3x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 121)
+}
+point_count = 2
+
+[node name="Level5" instance=ExtResource("1_fi7f8")]
+
+[node name="TileMap" parent="." index="0"]
+position = Vector2(0, -1)
+layer_0/tile_data = PackedInt32Array(196606, 327680, 0, 196607, 393216, 0, 131072, 393216, 0, 131073, 458752, 0, 131076, 65536, 0, 131077, 196608, 0, 131080, 65536, 0, 131081, 196608, 0, 131084, 65536, 1, 131085, 196608, 1, 196621, 131072, 2, 196622, 196608, 1, 262158, 131072, 2, 327694, 131072, 3, 327695, 131072, 3, 327696, 131072, 0, 327697, 131072, 0, 327698, 131072, 3, 262162, 65536, 1, 262163, 196608, 1, 262159, 196608, 1, 196620, 65536, 2, 262157, 131072, 2, 262156, 65536, 2, 327693, 131072, 3, 327692, 65536, 3, 327699, 196608, 3, 393211, 458752, 0, 393210, 327680, 0, 589816, 458752, 0, 589815, 327680, 0, 983029, 327680, 0, 983030, 393216, 0, 983031, 393216, 0, 983032, 393216, 0, 983033, 393216, 0, 983034, 393216, 0, 983035, 393216, 0, 983036, 393216, 0, 983037, 393216, 0, 983038, 393216, 0, 983039, 393216, 0, 917504, 393216, 0, 917505, 393216, 0, 917506, 393216, 0, 917507, 393216, 0, 917508, 458752, 0, 720895, 327680, 0, 655360, 393216, 0, 655361, 393216, 0, 655362, 393216, 0, 655363, 393216, 0, 655364, 393216, 0, 655365, 393216, 0, 655366, 458752, 3, 589830, 262144, 1, 917515, 655360, 0, 917516, 720896, 0, 917517, 720896, 0, 917518, 720896, 0, 917519, 720896, 0, 917520, 786432, 0, 786450, 655360, 0, 786451, 720896, 0, 786452, 720896, 0, 786454, 720896, 0, 786453, 720896, 0, 786455, 720896, 0, 786456, 720896, 0, 786457, 720896, 0, 786458, 786432, 0)
+
+[node name="Door" parent="." index="5" instance=ExtResource("2_xnfry")]
+position = Vector2(462, 204)
+
+[node name="Coin" parent="." index="6" instance=ExtResource("3_2o5r4")]
+position = Vector2(-145, 133)
+
+[node name="Coin2" parent="." index="7" instance=ExtResource("3_2o5r4")]
+position = Vector2(-90, 81)
+
+[node name="FlyingEnemy" parent="." index="8" instance=ExtResource("4_4c1ik")]
+position = Vector2(247, 118)
+curve = SubResource("Curve2D_msc3x")
+AnimationType = 1
+speed = 1.5
+
+[node name="KeyItem" parent="." index="9" instance=ExtResource("5_w4lde")]
+position = Vector2(305, 79)
+
+[node name="Lock" parent="." index="10" instance=ExtResource("6_hw0rc")]
+position = Vector2(117, 153)
+
+[node name="SpikeWalkingEnemy" parent="." index="11" instance=ExtResource("7_4vuf6")]
+position = Vector2(-1, 169)
+
+[editable path="Hitbox"]
+[editable path="FlyingEnemy"]
+[editable path="FlyingEnemy/PathFollow2D/Hitbox"]

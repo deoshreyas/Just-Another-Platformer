@@ -15,7 +15,6 @@ script = ExtResource("1_hc3mk")
 [node name="TileMap" parent="." instance=ExtResource("1_072ah")]
 
 [node name="Player" parent="." instance=ExtResource("2_sfpmw")]
-position = Vector2(194, 11)
 
 [node name="LivesContainer" type="CanvasLayer" parent="."]
 

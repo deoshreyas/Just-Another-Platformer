@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bds8rx3ibe0tr"]
+
+[ext_resource type="Script" path="res://Scripts/life_item.gd" id="1_mdq20"]
+[ext_resource type="Texture2D" uid="uid://dhdywnvpt08gh" path="res://Assets/Sprites/tilemap_packed.png" id="2_ykhaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xccnc"]
+size = Vector2(14, 12)
+
+[node name="LifeItem" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_mdq20")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ykhaa")
+region_enabled = true
+region_rect = Rect2(73.6618, 38.702, 14.7157, 12.6347)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xccnc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

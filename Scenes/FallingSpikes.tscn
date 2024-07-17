@@ -32,6 +32,6 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_l43aj")
 
 [node name="WorldRayCast" type="RayCast2D" parent="."]
-target_position = Vector2(0, 11)
+target_position = Vector2(0, 10)
 
 [editable path="Hitbox"]
