@@ -8,3 +8,4 @@ func _on_body_entered(body):
 			activated = true 
 			$AnimatedSprite2D.play("activated")
 			Global.can_go_to_next_level = true 
+			body.has_key = false

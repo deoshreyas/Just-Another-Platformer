@@ -5,7 +5,7 @@ class_name Player
 @export var JUMP_SPEED = 250
 @export var FALL_SPEED = 9.8
 @export var MAX_FALL_SPEED = 250
-@export var MAX_DOUBLE_JUMPS = 2
+@export var MAX_DOUBLE_JUMPS = 1
 @export var DOUBLE_JUMP_SPEED = 5
 
 @onready var sprites = $AnimatedSprite2D
@@ -20,6 +20,8 @@ var has_key = false:
 		has_key = value 
 		if has_key:
 			$Key.visible = true
+		else:
+			$Key.visible = false
 
 func _ready():
 	position = Global.checkpoint
