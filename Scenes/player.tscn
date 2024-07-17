@@ -60,3 +60,5 @@ position = Vector2(0, -21)
 texture = ExtResource("3_ex0t2")
 region_enabled = true
 region_rect = Rect2(126.783, 20.1316, 16.4859, 14.4617)
+
+[node name="Camera2D" type="Camera2D" parent="."]

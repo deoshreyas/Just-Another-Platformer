@@ -16,8 +16,6 @@ script = ExtResource("1_hc3mk")
 [node name="Player" parent="." instance=ExtResource("2_sfpmw")]
 position = Vector2(194, 11)
 
-[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-
 [node name="LivesContainer" type="CanvasLayer" parent="."]
 
 [node name="Hitbox" parent="." instance=ExtResource("4_41rt4")]

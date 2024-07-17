@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8jv31iwvqwqv"]
+[gd_scene load_steps=12 format=3 uid="uid://8jv31iwvqwqv"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_fid8e"]
 [ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="2_36o3i"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="8_a00q4"]
 [ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="9_vrq27"]
 [ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="10_i3jv1"]
+[ext_resource type="PackedScene" uid="uid://vuva6g8v10hf" path="res://Scenes/level_2.tscn" id="11_l3ynw"]
 
 [node name="Level1" instance=ExtResource("1_fid8e")]
 
@@ -63,6 +64,10 @@ position = Vector2(379, -64)
 
 [node name="Door" parent="." index="15" instance=ExtResource("10_i3jv1")]
 position = Vector2(251, -85)
+Next_Level = ExtResource("11_l3ynw")
+
+[node name="Checkpoint2" parent="." index="16" instance=ExtResource("5_x4sly")]
+position = Vector2(611, 9)
 
 [editable path="MovingPlatform"]
 [editable path="FallingSpikes"]
