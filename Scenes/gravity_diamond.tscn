@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckfqy82x57klt"]
+
+[ext_resource type="Script" path="res://Scripts/GravityDiamond.gd" id="1_bxjgc"]
+[ext_resource type="Texture2D" uid="uid://dhdywnvpt08gh" path="res://Assets/Sprites/tilemap_packed.png" id="2_kal3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0agvl"]
+size = Vector2(14, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7tkm"]
+size = Vector2(14, 13)
+
+[node name="GravityDiamond" type="CharacterBody2D"]
+z_index = 10
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_bxjgc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kal3r")
+region_enabled = true
+region_rect = Rect2(127.2, 55.5541, 15.6916, 15.2675)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_0agvl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_c7tkm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
