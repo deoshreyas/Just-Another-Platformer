@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://dywedq5o22hy7"]
+
+[ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_sjgcn"]
+[ext_resource type="PackedScene" uid="uid://b53coulog0il2" path="res://Scenes/lever_block.tscn" id="2_iuc4k"]
+[ext_resource type="PackedScene" uid="uid://cxjrfky41chdc" path="res://Scenes/lever.tscn" id="3_ivv3s"]
+[ext_resource type="PackedScene" uid="uid://dpo3xtkvwetw7" path="res://Scenes/coin.tscn" id="4_mcji8"]
+[ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="5_o50cu"]
+[ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="6_lbjdm"]
+[ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="7_mkbps"]
+[ext_resource type="PackedScene" uid="uid://hp10ddreg1yw" path="res://Scenes/level_8.tscn" id="8_lq8ll"]
+
+[node name="Level7" instance=ExtResource("1_sjgcn")]
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(196607, 65536, 0, 131072, 196608, 0, 131074, 65536, 0, 131075, 196608, 0, 4, 0, 0, -65530, 0, 0, -196600, 0, 0, -196598, 327680, 0, -196597, 393216, 0, -196596, 393216, 0, -196595, 393216, 0, -196594, 393216, 0, -196593, 393216, 0, -196592, 393216, 0, -196591, 393216, 0, -196590, 393216, 0, -196589, 393216, 0, -196588, 458752, 0, -458742, 327680, 3, -458741, 393216, 3, -458740, 393216, 3, -458739, 393216, 3, -458738, 393216, 3, -458737, 393216, 3, -458736, 393216, 3, -458735, 393216, 3, -458734, 393216, 3, -458733, 393216, 3, -458732, 458752, 3, -196585, 65536, 0, -196584, 196608, 0, -262118, 0, 0, -393188, 262144, 0, -524259, 0, 0, -655329, 262144, 0, -786400, 0, 0, -524278, 327680, 2, -524277, 393216, 2, -524276, 393216, 2, -524275, 393216, 2, -524274, 393216, 2, -524273, 393216, 2, -524272, 393216, 2, -524271, 393216, 2, -524270, 393216, 2, -524269, 393216, 2, -524268, 458752, 2, -589804, 458752, 1, -589805, 393216, 1, -589806, 393216, 1, -589807, 393216, 1, -589808, 393216, 1, -589809, 393216, 1, -589810, 393216, 1, -589811, 393216, 1, -589812, 393216, 1, -589813, 393216, 1, -589814, 327680, 1, -393211, 262144, 0)
+
+[node name="CharacterBody2D" parent="." index="5" instance=ExtResource("2_iuc4k")]
+position = Vector2(277, -80)
+
+[node name="Lever" parent="." index="6" instance=ExtResource("3_ivv3s")]
+position = Vector2(365, -171)
+
+[node name="Coin" parent="." index="7" instance=ExtResource("4_mcji8")]
+position = Vector2(283, -172)
+
+[node name="KeyItem" parent="." index="8" instance=ExtResource("5_o50cu")]
+position = Vector2(287, -251)
+
+[node name="Lock" parent="." index="9" instance=ExtResource("6_lbjdm")]
+position = Vector2(99, -115)
+
+[node name="Door" parent="." index="10" instance=ExtResource("7_mkbps")]
+position = Vector2(585, -228)
+Next_Level = ExtResource("8_lq8ll")
+
+[editable path="Hitbox"]

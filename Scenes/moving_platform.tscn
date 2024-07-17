@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://5ioq7mivvm65"]
+[gd_scene load_steps=12 format=3 uid="uid://5ioq7mivvm65"]
 
 [ext_resource type="Script" path="res://Scripts/moving_platform.gd" id="1_3162o"]
 [ext_resource type="Texture2D" uid="uid://cjams3sjpfooh" path="res://Assets/Tilemaps/tilemap_packed.png" id="1_r2rqv"]
 
 [sub_resource type="Curve2D" id="Curve2D_7ch2f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 124, 1)
+"points": PackedVector2Array(0, 0, 0, 0, 23, 1, 0, 0, 0, 0, 124, 1)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vl73"]
+size = Vector2(55, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gi4po"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1b5w"]
+size = Vector2(16, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ybkf"]
 size = Vector2(54, 18)
@@ -76,8 +85,8 @@ speed = 1.0
 metadata/_edit_group_ = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(64.4803, 0.520002)
-progress = 64.4821
+position = Vector2(61.8347, 1)
+progress = 38.8462
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
@@ -85,11 +94,50 @@ texture = ExtResource("1_r2rqv")
 region_enabled = true
 region_rect = Rect2(234.118, 54.1747, 54.1896, 17.6788)
 
+[node name="Up" type="Area2D" parent="PathFollow2D/Sprite2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Sprite2D/Up"]
+position = Vector2(-0.334682, -19)
+shape = SubResource("RectangleShape2D_4vl73")
+
+[node name="Down" type="Area2D" parent="PathFollow2D/Sprite2D"]
+position = Vector2(0, 38)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Sprite2D/Down"]
+position = Vector2(-0.334682, -19)
+shape = SubResource("RectangleShape2D_4vl73")
+
+[node name="Left" type="Area2D" parent="PathFollow2D/Sprite2D"]
+position = Vector2(0, 38)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Sprite2D/Left"]
+position = Vector2(-36.8347, -38)
+shape = SubResource("RectangleShape2D_gi4po")
+
+[node name="Right" type="Area2D" parent="PathFollow2D/Sprite2D"]
+position = Vector2(0, 38)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Sprite2D/Right"]
+position = Vector2(35.1653, -38)
+shape = SubResource("RectangleShape2D_v1b5w")
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(64.4803, 0.520002)
+position = Vector2(61.8347, 1)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
@@ -101,3 +149,12 @@ playback_process_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_xbk51")
 }
+
+[connection signal="body_entered" from="PathFollow2D/Sprite2D/Up" to="." method="_on_up_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Sprite2D/Up" to="." method="_on_up_body_exited"]
+[connection signal="body_entered" from="PathFollow2D/Sprite2D/Down" to="." method="_on_down_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Sprite2D/Down" to="." method="_on_down_body_exited"]
+[connection signal="body_entered" from="PathFollow2D/Sprite2D/Left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Sprite2D/Left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="PathFollow2D/Sprite2D/Right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Sprite2D/Right" to="." method="_on_right_body_exited"]

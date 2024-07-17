@@ -23,10 +23,8 @@ layer_0/tile_data = PackedInt32Array(131070, 65536, 0, 131071, 131072, 0, 65536,
 [node name="MovingPlatform" parent="." index="5" instance=ExtResource("2_1ndup")]
 position = Vector2(44, 26)
 curve = SubResource("Curve2D_ky0iu")
-
-[node name="PathFollow2D" parent="MovingPlatform" index="0"]
-position = Vector2(23, 1)
-progress = 0.0
+AvoidUp = true
+AvoidDown = true
 
 [node name="AnimatableBody2D" parent="MovingPlatform" index="1"]
 position = Vector2(23, 1)

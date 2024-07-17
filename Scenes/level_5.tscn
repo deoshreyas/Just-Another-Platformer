@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://buokn2rotd5tc"]
+[gd_scene load_steps=10 format=3 uid="uid://buokn2rotd5tc"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_fi7f8"]
 [ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="2_xnfry"]
 [ext_resource type="PackedScene" uid="uid://dpo3xtkvwetw7" path="res://Scenes/coin.tscn" id="3_2o5r4"]
+[ext_resource type="PackedScene" uid="uid://b4luvnieoo3ot" path="res://Scenes/level_6.tscn" id="3_w1l4d"]
 [ext_resource type="PackedScene" uid="uid://c3tlrf0mwrlp5" path="res://Scenes/flying_enemy.tscn" id="4_4c1ik"]
 [ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="5_w4lde"]
 [ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="6_hw0rc"]
@@ -22,6 +23,7 @@ layer_0/tile_data = PackedInt32Array(196606, 327680, 0, 196607, 393216, 0, 13107
 
 [node name="Door" parent="." index="5" instance=ExtResource("2_xnfry")]
 position = Vector2(462, 204)
+Next_Level = ExtResource("3_w1l4d")
 
 [node name="Coin" parent="." index="6" instance=ExtResource("3_2o5r4")]
 position = Vector2(-145, 133)
