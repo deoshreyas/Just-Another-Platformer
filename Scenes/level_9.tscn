@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bsadbp4bq5h4i"]
+[gd_scene load_steps=18 format=3 uid="uid://bsadbp4bq5h4i"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_7ykxt"]
 [ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="2_wdlrl"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="12_sp6kj"]
 [ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="13_xsxq7"]
 [ext_resource type="PackedScene" uid="uid://bbo74fb0lu8y8" path="res://Scenes/level_10.tscn" id="14_km3dj"]
+[ext_resource type="PackedScene" uid="uid://bds8rx3ibe0tr" path="res://Scenes/life_item.tscn" id="15_hpbb0"]
 
 [sub_resource type="Curve2D" id="Curve2D_6rw6c"]
 _data = {
@@ -95,5 +96,8 @@ position = Vector2(486, -857)
 [node name="Door" parent="." index="24" instance=ExtResource("13_xsxq7")]
 position = Vector2(152, -1200)
 Next_Level = ExtResource("14_km3dj")
+
+[node name="LifeItem" parent="." index="25" instance=ExtResource("15_hpbb0")]
+position = Vector2(290, -1251)
 
 [editable path="Hitbox"]

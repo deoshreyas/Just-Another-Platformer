@@ -3,6 +3,7 @@ extends Control
 var ready_to_accept_input = false
 
 func _ready():
+	SoundRoot.play("lose")
 	get_tree().paused = false
 	$CanvasLayer/VBoxContainer/Time.text = "Time: " + str(Global.time)
 	$CanvasLayer/Coins.text = str(Global.coins)

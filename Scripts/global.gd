@@ -18,6 +18,7 @@ var coins = 0:
 		return coins 
 	set(value):
 		coins = value
+		SoundRoot.play("coin")
 		increment_coin_count.emit()
 
 var diamonds = 0:
@@ -25,6 +26,7 @@ var diamonds = 0:
 		return diamonds 
 	set(value):
 		diamonds = value
+		SoundRoot.play("coin")
 		increment_diamond_count.emit()
 	
 var time = 0:

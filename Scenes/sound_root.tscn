@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxe1g464v6ec1"]
+
+[ext_resource type="Script" path="res://Scripts/sound_root.gd" id="1_ojrf7"]
+[ext_resource type="AudioStream" uid="uid://ckmxgxxwkdlk3" path="res://Assets/SFX/background.mp3" id="2_d1y51"]
+[ext_resource type="AudioStream" uid="uid://bf2gpmh8241as" path="res://Assets/SFX/coin.wav" id="3_l1w1c"]
+[ext_resource type="AudioStream" uid="uid://crt3ao8uupw26" path="res://Assets/SFX/lose.wav" id="4_kx0el"]
+
+[node name="SoundRoot" type="Node"]
+process_mode = 3
+script = ExtResource("1_ojrf7")
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d1y51")
+volume_db = -5.0
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l1w1c")
+volume_db = -10.0
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kx0el")
+volume_db = -10.0
