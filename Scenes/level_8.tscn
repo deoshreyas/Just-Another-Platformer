@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://hp10ddreg1yw"]
+[gd_scene load_steps=14 format=3 uid="uid://hp10ddreg1yw"]
 
 [ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_hcbwu"]
 [ext_resource type="PackedScene" uid="uid://c3tlrf0mwrlp5" path="res://Scenes/flying_enemy.tscn" id="2_tfmml"]
 [ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="3_tbrn8"]
+[ext_resource type="PackedScene" uid="uid://bsadbp4bq5h4i" path="res://Scenes/level_9.tscn" id="4_kukaj"]
 [ext_resource type="PackedScene" uid="uid://01lpooxkui4d" path="res://Scenes/checkpoint.tscn" id="4_vfxfc"]
 [ext_resource type="PackedScene" uid="uid://cdtr1m3cu8st3" path="res://Scenes/FallingSpikes.tscn" id="5_5i3hx"]
 [ext_resource type="PackedScene" uid="uid://bn7cdi8uc02js" path="res://Scenes/diamond.tscn" id="6_kusgw"]
 [ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="7_yx3ac"]
 [ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="8_gxbm0"]
 [ext_resource type="PackedScene" uid="uid://b7e7knpofcwnh" path="res://Scenes/spike_walking_enemy.tscn" id="9_21fea"]
+[ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="10_hitow"]
 
 [sub_resource type="Curve2D" id="Curve2D_xe2gv"]
 _data = {
@@ -37,6 +39,7 @@ position = Vector2(755, -229)
 
 [node name="Door2" parent="." index="7" instance=ExtResource("3_tbrn8")]
 position = Vector2(755, -229)
+Next_Level = ExtResource("4_kukaj")
 
 [node name="Checkpoint" parent="." index="8" instance=ExtResource("4_vfxfc")]
 position = Vector2(572, -9)
@@ -70,5 +73,8 @@ AvoidUp = true
 
 [node name="SpikeWalkingEnemy" parent="." index="17" instance=ExtResource("9_21fea")]
 position = Vector2(586, -227)
+
+[node name="KeyItem" parent="." index="18" instance=ExtResource("10_hitow")]
+position = Vector2(559, -314)
 
 [editable path="Hitbox"]

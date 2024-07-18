@@ -1,0 +1,151 @@
+[gd_scene load_steps=17 format=3 uid="uid://bbo74fb0lu8y8"]
+
+[ext_resource type="PackedScene" uid="uid://ogo80smhttn0" path="res://Scenes/level_base.tscn" id="1_qhu1y"]
+[ext_resource type="PackedScene" uid="uid://cdtr1m3cu8st3" path="res://Scenes/FallingSpikes.tscn" id="2_uobmk"]
+[ext_resource type="PackedScene" uid="uid://c3tlrf0mwrlp5" path="res://Scenes/flying_enemy.tscn" id="3_hbn10"]
+[ext_resource type="PackedScene" uid="uid://bdxxlrsh5b4tu" path="res://Scenes/small_walking_enemy.tscn" id="4_i8w0q"]
+[ext_resource type="PackedScene" uid="uid://b7e7knpofcwnh" path="res://Scenes/spike_walking_enemy.tscn" id="5_1m3qd"]
+[ext_resource type="PackedScene" uid="uid://b3mvop7mugb2w" path="res://Scenes/big_walking_enemy.tscn" id="6_gi45r"]
+[ext_resource type="PackedScene" uid="uid://5ioq7mivvm65" path="res://Scenes/moving_platform.tscn" id="7_od2bh"]
+[ext_resource type="PackedScene" uid="uid://01lpooxkui4d" path="res://Scenes/checkpoint.tscn" id="8_lyd1x"]
+[ext_resource type="PackedScene" uid="uid://bn7cdi8uc02js" path="res://Scenes/diamond.tscn" id="9_1dkdw"]
+[ext_resource type="PackedScene" uid="uid://bngqolqdv35ih" path="res://Scenes/key_item.tscn" id="10_yqn0i"]
+[ext_resource type="PackedScene" uid="uid://dpo3xtkvwetw7" path="res://Scenes/coin.tscn" id="11_srac0"]
+[ext_resource type="PackedScene" uid="uid://b53coulog0il2" path="res://Scenes/lever_block.tscn" id="12_6gcn3"]
+[ext_resource type="PackedScene" uid="uid://cxjrfky41chdc" path="res://Scenes/lever.tscn" id="13_7aswm"]
+[ext_resource type="PackedScene" uid="uid://8qyokbxml5mi" path="res://Scenes/lock.tscn" id="14_h13a8"]
+[ext_resource type="PackedScene" uid="uid://cx0swx4mtdd8i" path="res://Scenes/door.tscn" id="15_n4juj"]
+
+[sub_resource type="Curve2D" id="Curve2D_o7wdd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 161, -1, 0, 0, 0, 0, 159, 65, 0, 0, 0, 0, -1, 65, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Level10" instance=ExtResource("1_qhu1y")]
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(131071, 65536, 0, 65536, 196608, 0, 65538, 327680, 0, 65539, 458752, 0, 131077, 262144, 0, 131079, 327680, 0, 65544, 262144, 1, 131080, 458752, 3, -65527, 327680, 0, -65526, 458752, 0, -196597, 327680, 0, -196596, 458752, 0, -262130, 327680, 0, -262129, 458752, 0, -327663, 262144, 0, -458733, 65536, 0, -458732, 131072, 0, -458731, 196608, 0, -458729, 65536, 0, -458728, 196608, 0, -589798, 0, 0, -851946, 786432, 0, -851947, 655360, 0, -851951, 786432, 0, -851952, 720896, 0, -851953, 720896, 0, -851954, 720896, 0, -851955, 655360, 0, -917496, 786432, 1, -917497, 720896, 1, -917498, 655360, 1, -1048571, 786432, 1, -1048572, 720896, 1, -1048573, 720896, 1, -1048574, 655360, 1, -1245176, 655360, 1, -1245175, 720896, 1, -1245174, 720896, 1, -1245173, 720896, 1, -1245172, 720896, 1, -1245171, 720896, 1, -1245170, 720896, 1, -1245169, 720896, 1, -1245168, 720896, 1, -1245167, 720896, 1, -1245166, 786432, 1, -1310702, 786432, 1, -1310703, 655360, 1, -1310712, 655360, 1, -1310711, 786432, 1, -1507327, 393216, 0, -1507326, 393216, 0, -1507325, 393216, 0, -1507324, 393216, 0, -1507323, 393216, 0, -1507322, 458752, 0, -1507328, 393216, 0, -1441793, 393216, 0, -1441794, 393216, 0, -1441795, 327680, 0, -1834997, 655360, 0, -1834996, 720896, 0, -1834995, 720896, 0, -1834994, 720896, 0, -1834993, 720896, 0, -1834992, 720896, 0, -1834991, 720896, 0, -1900533, 655360, 0, -1900532, 786432, 0, -1834990, 720896, 0, -1834989, 720896, 0, -1834988, 720896, 0, -1834987, 720896, 0, -1834986, 720896, 0, -1834985, 786432, 0, -1900521, 786432, 0, -1900522, 655360, 0, -2162689, 262144, 1, -2097153, 262144, 2, -2031617, 262144, 2, -1966081, 262144, 3, -2031616, 393216, 0, -2031615, 393216, 0, -2031614, 393216, 0, -2031613, 458752, 0, -1966077, 262144, 3, -1966076, 393216, 0, -1966075, 393216, 0, -1966074, 393216, 0, -1966073, 393216, 0, -1966072, 458752, 0, -2424832, 327680, 0, -2424831, 393216, 0, -2424830, 393216, 0, -2424829, 393216, 0, -2424828, 393216, 0, -2424827, 393216, 0, -2424826, 393216, 0, -2424825, 393216, 0, -2424824, 393216, 0, -2424823, 458752, 0, -2228230, 524288, 4, -2228229, 589824, 4, -2228228, 655360, 4, -2490379, 524288, 4, -2490378, 589824, 4, -2490377, 589824, 4, -2490376, 589824, 4, -2490375, 655360, 4, -2752515, 524288, 4, -2752514, 589824, 4, -2752513, 589824, 4, -2818048, 655360, 4, -3080188, 524288, 4, -3080187, 589824, 4, -3080186, 589824, 4, -3080185, 589824, 4, -3080184, 589824, 4, -3080183, 655360, 4, -3342323, 524288, 4, -3342322, 589824, 4, -3342321, 589824, 4, -3342320, 589824, 4, -3342319, 589824, 4, -3342318, 589824, 4, -3342317, 655360, 4, -2490382, 983040, 3, -2490383, 917504, 3, -2490384, 917504, 3, -2490385, 851968, 3, -2424854, 983040, 3, -2424855, 917504, 3, -2424856, 851968, 3, -4456434, 524288, 4, -4456433, 655360, 4, -4390897, 524288, 4, -4390896, 589824, 4, -4390895, 589824, 4, -4390894, 655360, 4, -4456430, 524288, 4, -4456429, 589824, 4, -4456428, 655360, 4, -4587515, 655360, 4, -4587516, 589824, 4, -4587517, 589824, 4, -4587518, 589824, 4, -4587519, 524288, 4, -4390914, 983040, 3, -4390915, 917504, 3, -4390916, 917504, 3, -4390917, 917504, 3, -4390918, 917504, 3, -4390919, 851968, 3, -4194313, 786432, 1, -4194314, 720896, 1, -4194315, 720896, 1, -4194316, 720896, 1, -4194319, 720896, 1, -4194318, 720896, 1, -4194317, 720896, 1, -4194320, 655360, 1, -4390933, 458752, 0, -4390934, 393216, 0, -4390935, 327680, 0, -3997698, 393216, 1, -3932162, 458752, 2, -3866626, 458752, 2, -3801090, 458752, 2, -3735554, 458752, 2, -3670018, 393216, 3, -3670017, 393216, 0, -3735552, 393216, 0, -3735551, 393216, 0, -3735550, 393216, 0, -3735549, 393216, 0, -3735548, 393216, 0, -3735547, 393216, 0, -3735546, 393216, 0, -3735545, 458752, 0, -3997697, 393216, 1, -4063232, 393216, 0, -4063231, 393216, 0, -4063230, 393216, 0, -4063229, 393216, 0, -4063228, 393216, 0, -4063227, 393216, 0, -4063226, 393216, 0, -4063225, 458752, 0, -3997699, 327680, 1, -3932163, 327680, 2, -3866627, 327680, 2, -3801091, 327680, 2, -3735555, 327680, 2, -3670019, 327680, 3)
+
+[node name="FallingSpikes" parent="." index="5" instance=ExtResource("2_uobmk")]
+position = Vector2(27, -643)
+
+[node name="RayCast2D" parent="FallingSpikes" index="2"]
+target_position = Vector2(0, 85)
+
+[node name="FallingSpikes2" parent="." index="6" instance=ExtResource("2_uobmk")]
+position = Vector2(44, -643)
+
+[node name="RayCast2D" parent="FallingSpikes2" index="2"]
+target_position = Vector2(0, 85)
+
+[node name="FallingSpikes3" parent="." index="7" instance=ExtResource("2_uobmk")]
+position = Vector2(62, -643)
+
+[node name="RayCast2D" parent="FallingSpikes3" index="2"]
+target_position = Vector2(0, 85)
+
+[node name="FallingSpikes4" parent="." index="8" instance=ExtResource("2_uobmk")]
+position = Vector2(80, -643)
+
+[node name="RayCast2D" parent="FallingSpikes4" index="2"]
+target_position = Vector2(0, 85)
+
+[node name="FallingSpikes5" parent="." index="9" instance=ExtResource("2_uobmk")]
+position = Vector2(114, -643)
+metadata/_edit_group_ = true
+
+[node name="RayCast2D" parent="FallingSpikes5" index="2"]
+target_position = Vector2(0, 100)
+
+[node name="FallingSpikes6" parent="." index="10" instance=ExtResource("2_uobmk")]
+position = Vector2(97, -643)
+metadata/_edit_group_ = true
+
+[node name="RayCast2D" parent="FallingSpikes6" index="2"]
+target_position = Vector2(0, 100)
+
+[node name="FlyingEnemy" parent="." index="11" instance=ExtResource("3_hbn10")]
+position = Vector2(49, -868)
+curve = SubResource("Curve2D_o7wdd")
+
+[node name="SmallWalkingEnemy" parent="." index="12" instance=ExtResource("4_i8w0q")]
+position = Vector2(195, -354)
+
+[node name="SpikeWalkingEnemy" parent="." index="13" instance=ExtResource("5_1m3qd")]
+position = Vector2(-32, -424)
+
+[node name="BigWalkingEnemy" parent="." index="14" instance=ExtResource("6_gi45r")]
+position = Vector2(250, -515)
+
+[node name="MovingPlatform" parent="." index="15" instance=ExtResource("7_od2bh")]
+position = Vector2(363, -912)
+AvoidUp = true
+AvoidDown = true
+AvoidLeft = true
+AvoidRight = true
+
+[node name="Checkpoint" parent="." index="16" instance=ExtResource("8_lyd1x")]
+position = Vector2(-16, -781)
+
+[node name="Checkpoint2" parent="." index="17" instance=ExtResource("8_lyd1x")]
+position = Vector2(74, -296)
+
+[node name="Diamond" parent="." index="18" instance=ExtResource("9_1dkdw")]
+position = Vector2(-4, -1061)
+
+[node name="Diamond2" parent="." index="19" instance=ExtResource("9_1dkdw")]
+position = Vector2(19, -1062)
+
+[node name="Diamond3" parent="." index="20" instance=ExtResource("9_1dkdw")]
+position = Vector2(-4, -1082)
+
+[node name="Diamond4" parent="." index="21" instance=ExtResource("9_1dkdw")]
+position = Vector2(19, -1082)
+
+[node name="Diamond6" parent="." index="22" instance=ExtResource("9_1dkdw")]
+position = Vector2(20, -1039)
+
+[node name="Diamond5" parent="." index="23" instance=ExtResource("9_1dkdw")]
+position = Vector2(-2, -1039)
+
+[node name="KeyItem" parent="." index="24" instance=ExtResource("10_yqn0i")]
+position = Vector2(-389, -1233)
+
+[node name="Coin" parent="." index="25" instance=ExtResource("11_srac0")]
+position = Vector2(-160, -714)
+
+[node name="Coin2" parent="." index="26" instance=ExtResource("11_srac0")]
+position = Vector2(-352, -751)
+
+[node name="Coin3" parent="." index="27" instance=ExtResource("11_srac0")]
+position = Vector2(536, -1088)
+
+[node name="CharacterBody2D" parent="." index="28" instance=ExtResource("12_6gcn3")]
+position = Vector2(120, -1052)
+
+[node name="Lever" parent="." index="29" instance=ExtResource("13_7aswm")]
+position = Vector2(-406, -693)
+
+[node name="Lock" parent="." index="30" instance=ExtResource("14_h13a8")]
+position = Vector2(298, -927)
+
+[node name="Checkpoint3" parent="." index="31" instance=ExtResource("8_lyd1x")]
+position = Vector2(60, -1269)
+
+[node name="Door" parent="." index="32" instance=ExtResource("15_n4juj")]
+position = Vector2(53, 6)
+
+[editable path="Hitbox"]
+[editable path="FallingSpikes"]
+[editable path="FallingSpikes/Hitbox"]
+[editable path="FallingSpikes2"]
+[editable path="FallingSpikes2/Hitbox"]
+[editable path="FallingSpikes3"]
+[editable path="FallingSpikes3/Hitbox"]
+[editable path="FallingSpikes4"]
+[editable path="FallingSpikes4/Hitbox"]
+[editable path="FallingSpikes5"]
+[editable path="FallingSpikes5/Hitbox"]
+[editable path="FallingSpikes6"]
+[editable path="FallingSpikes6/Hitbox"]

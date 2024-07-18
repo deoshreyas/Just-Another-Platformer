@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://rv3fgk4rk58b"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40iua"]
+[ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="1_hvmdk"]
+[ext_resource type="Texture2D" uid="uid://dhdywnvpt08gh" path="res://Assets/Sprites/tilemap_packed.png" id="2_7hqs4"]
+[ext_resource type="FontFile" uid="uid://b72tfbiytic50" path="res://Assets/Fonts/PixeloidSans-Bold.ttf" id="3_njdmc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew5mr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhsd3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40iua")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.52549, 0.278431, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(236, 101)
+scale = Vector2(6.88095, 6.88095)
+texture = ExtResource("1_hvmdk")
+region_enabled = true
+region_rect = Rect2(145.446, 0.246254, 21.0665, 24.4898)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(59, 31)
+scale = Vector2(2.41667, 2.41667)
+texture = ExtResource("2_7hqs4")
+region_enabled = true
+region_rect = Rect2(126.519, 17.5593, 35.4812, 18.0243)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -98.0
+offset_right = 81.0
+offset_bottom = -15.0
+grow_vertical = 0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Music")
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_njdmc")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ew5mr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nhsd3")
+text = "> Play"
+
+[node name="Music" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_njdmc")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ew5mr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nhsd3")
+text = "> Music"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Music")
+focus_neighbor_bottom = NodePath("../Play")
+theme_override_fonts/font = ExtResource("3_njdmc")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_ew5mr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nhsd3")
+text = "> Exit"
