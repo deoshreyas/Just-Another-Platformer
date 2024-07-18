@@ -1,18 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://rv3fgk4rk58b"]
+[gd_scene load_steps=10 format=3 uid="uid://rv3fgk4rk58b"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_40iua"]
 [ext_resource type="Texture2D" uid="uid://7bur0rser04" path="res://Assets/Sprites/tilemap-characters_packed.png" id="1_hvmdk"]
 [ext_resource type="Texture2D" uid="uid://dhdywnvpt08gh" path="res://Assets/Sprites/tilemap_packed.png" id="2_7hqs4"]
 [ext_resource type="FontFile" uid="uid://b72tfbiytic50" path="res://Assets/Fonts/PixeloidSans-Bold.ttf" id="3_njdmc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew5mr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1tbg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhsd3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdwev"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktngi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d52du"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_70iw0"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_g1tbg")
+Button/styles/hover = SubResource("StyleBoxFlat_xdwev")
+Button/styles/normal = SubResource("StyleBoxFlat_ktngi")
+Button/styles/pressed = SubResource("StyleBoxFlat_d52du")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -56,27 +68,20 @@ offset_top = -98.0
 offset_right = 81.0
 offset_bottom = -15.0
 grow_vertical = 0
+theme = SubResource("Theme_70iw0")
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Exit")
 focus_neighbor_bottom = NodePath("../Music")
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_njdmc")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_ew5mr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nhsd3")
 text = "> Play"
 
 [node name="Music" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_njdmc")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_ew5mr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nhsd3")
 text = "> Music"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
@@ -85,6 +90,8 @@ focus_neighbor_top = NodePath("../Music")
 focus_neighbor_bottom = NodePath("../Play")
 theme_override_fonts/font = ExtResource("3_njdmc")
 theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_ew5mr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nhsd3")
 text = "> Exit"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

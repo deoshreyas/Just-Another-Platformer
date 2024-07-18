@@ -25,7 +25,16 @@ var diamonds = 0:
 		return diamonds 
 	set(value):
 		diamonds = value
-		increment_diamond_count.emit() 
+		increment_diamond_count.emit()
+	
+var time = 0:
+	get:
+		return snapped(time, 0.01)
+	set(value):
+		time = value
+
+func _process(delta):
+	time += delta
 
 func change_level(level):
 	get_tree().root.add_child(level_transition)

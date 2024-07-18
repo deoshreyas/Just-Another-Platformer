@@ -16,3 +16,5 @@ func _on_body_entered(body):
 				player_instance.has_key = true
 		else:
 			body.call_deferred("queue_free")
+			get_tree().paused = true 
+			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
